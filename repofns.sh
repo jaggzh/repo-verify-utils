@@ -24,6 +24,12 @@ github_env_verify() {
 	fi
 	# If you source this script and end up calling github_env_verify, we don't
 	# want it to exit our shell:
-	aerr "Aborting. (err=$err)"
-	[[ "$err" != 0 ]] && { [[ $_ != $0 ]] && return 1 || exit 1; }
+	if [[ "$err" != 0 ]]; then
+		aerr "Aborting. (err=$err)"
+		if [[ $_ != $0 ]]; then
+			return 1
+		else
+			exit 1
+		fi
+	fi
 }
