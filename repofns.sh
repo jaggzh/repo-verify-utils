@@ -4,13 +4,25 @@ asection() { echo "$bgblu${yel}$@$rst"; }
 anotice() { echo "$bcya$@$rst"; }
 awarn() { echo "$yel$@$rst"; }
 aerr() { echo "$bgred${yel}$@$rst"; }
-
 a_cmd=$bcya
 a_cmd1=$bcya
 a_cmd2=$bmag
 a_cmd3=$bgre
-
 ##
+opt_force_color=0
+
+repoverify_args() {
+	local args=("$@")
+	for a in "$@"; do
+		if [[ "$a" = -C ]]; then
+			opt_force_color=1
+		elif [[ "$a" = -h || "$a" = --help ]]; then
+			repoverif_usage
+		else
+			echo "Not sure what option '$a' is. Ignoring." >&2
+		fi
+	done
+}
 
 github_env_verify() {
 	local err=0

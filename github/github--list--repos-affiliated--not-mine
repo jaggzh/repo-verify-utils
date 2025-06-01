@@ -1,6 +1,7 @@
 #!/bin/bash
 { [[ -f repofns.sh ]] && . ./repofns.sh; } || { [[ -f ../repofns.sh ]] && . ../repofns.sh; }
 github_env_verify
+repoverify_args "$@"
 
 cmd=(
 	curl -s
@@ -8,9 +9,10 @@ cmd=(
 		-H "Accept: application/vnd.github+json"
 		'https://api.github.com/user/repos?visibility=all&affiliation=owner,collaborator,organization_member&per_page=100'
 )
-cmd_filt=(
+cmd_filt=( # Output filtration command
 	jq '[.[] | select(.owner.login != "'"$GH_LOGIN"'")]'
 )
+[[ "$opt_force_color" = 1 ]] && cmd_filt+=("-C")  # Append jq force color (-C)
 
 (
 	asection "Command:"
