@@ -6,8 +6,8 @@ A utility collection to help examine what repositories and scopes your GitHub id
 ## Overview
 
 With the shift toward using agents, automation tools, cloud editors, etc. --
-that act on your behalf -- you may be granting GitHub access to more than you
-realize. This repository provides small, inspectable Bash utilities that help
+that act on your behalf -- you may be granting repository access to more than you
+realize. This repository provides small, inspectable utilities that help
 you see what repos your credentials can access — including repos you don't own
 but can still affect.
 
