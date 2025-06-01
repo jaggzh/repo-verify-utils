@@ -20,6 +20,8 @@ your username).
 ---
 
 ## Issues:
+ - The $GH_TOKEN display in commands is supposed to be redacted, but it's not working --
+   ** SO DON'T PASTE YOUR OUTPUT FROM THESE SCRIPTS TO OTHER PEOPLE **
  - I just set this up. We probably need to reference the shell script location
    so it will source its utility routines scripts from the proper paths. **For
    now, run the scripts from here in your clone of the repo.**
