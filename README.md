@@ -52,26 +52,25 @@ github--list--repos-affiliated--not-mine
 
 ## Files
 
-### `ansi.sh`
-Color/formatting utility functions used across scripts.
+* `ansi.sh`
+ Color/formatting utility functions used across scripts.
 
-### `repofns.sh`
-Helper functions including:
+* `repofns.sh`: Helper functions including:
+ * Color print helpers (`asection`, `awarn`, etc.)
+ * `github_env_verify` – checks if `GH_TOKEN` and `GH_LOGIN` are set
 
-* Color print helpers (`asection`, `awarn`, etc.)
-* `github_env_verify` – checks if `GH_TOKEN` and `GH_LOGIN` are set
+* `github/github--list--repos-affiliated--mine`
+ Lists all affiliated GitHub repos that **you own**.
 
-### `github/github--list--repos-affiliated--mine`
-Lists all affiliated GitHub repos that **you own**.
+* `github/github--list--repos-affiliated--not-mine`
+ Lists all affiliated GitHub repos that **you do not own**, i.e., where you're
+ a collaborator or org member.
 
-### `github/github--list--repos-affiliated--not-mine`
-Lists all affiliated GitHub repos that **you do not own**, i.e., where you're a collaborator or org member.
+* `github/zz--set-env--GH_LOGIN--to-your-username`
+ Convenience script for setting the `GH_LOGIN` environment variable.
 
-### `github/zz--set-env--GH_LOGIN--to-your-username`
-Convenience script for setting the `GH_LOGIN` environment variable.
-
-### `github/zz--set-env--GH_TOKEN`
-Convenience script for setting the `GH_TOKEN` environment variable.
+* `github/zz--set-env--GH_TOKEN`
+ Convenience script for setting the `GH_TOKEN` environment variable.
 
 ---
 
