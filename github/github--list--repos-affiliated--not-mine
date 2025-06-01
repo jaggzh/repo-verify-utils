@@ -1,0 +1,29 @@
+#!/bin/bash
+{ [[ -f repofns.sh ]] && . ./repofns.sh; } || { [[ -f ../repofns.sh ]] && . ../repofns.sh; }
+github_env_verify
+
+cmd=(
+	curl -s
+		-H "Authorization: Bearer $GH_TOKEN"
+		-H "Accept: application/vnd.github+json"
+		'https://api.github.com/user/repos?visibility=all&affiliation=owner,collaborator,organization_member&per_page=100'
+)
+cmd_filt=(
+	jq '[.[] | select(.owner.login != "'"$GH_LOGIN"'")]'
+)
+
+(
+	asection "Command:"
+	TEMP_GH_TOKEN_STORE=$GH_TOKEN
+	GH_TOKEN="{HIDDEN}"
+	echo -n "$a_cmd "
+	printf '%q ' "${cmd[@]}"
+	echo -n "$rst"
+	echo '|'
+	echo -n "$a_cmd2  "
+	printf '%q ' "${cmd_filt[@]}"
+	echo "$rst"
+	GH_TOKEN=$TEMP_GH_TOKEN_STORE
+) >&2
+
+"${cmd[@]}" | "${cmd_filt[@]}"
