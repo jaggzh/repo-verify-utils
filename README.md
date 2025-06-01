@@ -56,8 +56,8 @@ github--list--repos-affiliated--not-mine
  Color/formatting utility functions used across scripts.
 
 * `repofns.sh`: Helper functions including:
- * Color print helpers (`asection`, `awarn`, etc.)
- * `github_env_verify` – checks if `GH_TOKEN` and `GH_LOGIN` are set
+  - Color print helpers (`asection`, `awarn`, etc.)
+  - `github_env_verify` – checks if `GH_TOKEN` and `GH_LOGIN` are set
 
 * `github/github--list--repos-affiliated--mine`
  Lists all affiliated GitHub repos that **you own**.
